@@ -92,20 +92,22 @@ describe('Evaluation Methods', () => {
 
     describe('Contains', () => {
         it('should return true and first parameter for 1st param contains 2nd param', () => {
-            const response = isContain([2, 1, 4], 1);
+            const arr = [2, 1, 4];
+            const response = isContain(arr[1], 1);
 
             expect(response).toMatchObject({
                 value: true,
-                field_value: [2, 1, 4]
+                field_value: arr[1]
             });
         });
 
         it('should return false and first parameter for 1st param not contains 2nd param', () => {
-            const res = isContain(['a', 'v', 'c'], 4);
+            const arr = [2, 1, 4];
+            const response = isContain(arr[2], 1);
 
-            expect(res).toMatchObject({
+            expect(response).toMatchObject({
                 value: false,
-                field_value: ['a', 'v', 'c']
+                field_value: arr[2]
             });
         });
     });
