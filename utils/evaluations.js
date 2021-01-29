@@ -28,7 +28,7 @@ export const greaterOrEqual = (a, b) => {
 
 export const isContain = (a, b) => {
     return {
-        value: a.includes(b),
+        value: a === b,
         field_value: a
     }
 };
