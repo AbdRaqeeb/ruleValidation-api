@@ -1,5 +1,5 @@
 import asyncHandler from "../middleware/async.js";
-import { equal, isContain, greater, greaterOrEqual, notEqual } from "../utils/evaluations.js";
+import {equal, isContain, greater, greaterOrEqual, notEqual} from "../utils/evaluations.js";
 
 
 /**
@@ -8,8 +8,9 @@ import { equal, isContain, greater, greaterOrEqual, notEqual } from "../utils/ev
  * @access  Public
  * */
 export const validate = asyncHandler(async (req, res, next) => {
-    const { rule, data } = req.body;
+    const {rule, data} = (req.body);
 
+    // check type of data that is received
     const type = checkType(data);
 
     // data of type 'string'
@@ -76,6 +77,7 @@ export const validate = asyncHandler(async (req, res, next) => {
         }
     }
 
+    // base case - when data is of type 'object'
     // equals
     if (rule.condition === 'eq') {
         const result = equal(data[rule.field], rule.condition_value);
@@ -101,7 +103,7 @@ export const validate = asyncHandler(async (req, res, next) => {
 });
 
 const checkType = (body) => {
-    if(Array.isArray(body)) return 'array';
+    if (Array.isArray(body)) return 'array';
     return typeof body
 };
 
