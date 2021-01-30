@@ -1,7 +1,7 @@
-import {equal, greater, greaterOrEqual, isContain, notEqual} from "../utils/evaluations.js";
+import { equal, greater, greaterOrEqual, isContain, notEqual } from "../utils/evaluations.js";
 
 export const validation = (body) => {
-    const {rule, data} = (body);
+    const { rule, data } = (body);
 
     // check type of data that is received
     const type = checkType(data);
@@ -45,7 +45,7 @@ export const validation = (body) => {
         if (rule.condition === 'eq') {
             const result = equal(data[+rule.field], rule.condition_value);
 
-            return sendResponse(rule, data, result, res);
+            return sendResponse(rule, data, result);
         }
 
         // not equals
