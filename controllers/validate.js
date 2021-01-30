@@ -1,5 +1,5 @@
 import asyncHandler from "../middleware/async.js";
-import { validation } from "../middleware/service.js";
+import { validation } from "../services/validation.js";
 
 
 /**
